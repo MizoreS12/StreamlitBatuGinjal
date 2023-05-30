@@ -1,7 +1,6 @@
 import warnings
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import plot_confusion_matrix
 from sklearn import tree
 import streamlit as st
 
@@ -13,12 +12,6 @@ def app(df, x, y):
     st.set_option('deprecation.showPyplotGlobalUse', False)
 
     st.title("Visualisasi Prediksi Batu Ginjal")
-
-    if st.checkbox("Plot Confusion Matrix"):
-        model, score = train_model(x, y )
-        plt.figure(figsize=(10,6))
-        plot_confusion_matrix(model, x, y, values_format='d')
-        st.pyplot()
 
     if st.checkbox("Plot Decision Tree"):
         model, score = train_model(x, y)
